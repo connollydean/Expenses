@@ -37,8 +37,6 @@ class ExpensesViewController: UIViewController {
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
         
-        //        fetchRequest.returnsObjectsAsFaults = false
-        
         do {
             expenses = try managedContext.fetch(fetchRequest)
             
@@ -90,8 +88,8 @@ class ExpensesViewController: UIViewController {
                 expensesTableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
+        }
     }
-}
 
 extension ExpensesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
