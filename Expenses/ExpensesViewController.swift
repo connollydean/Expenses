@@ -37,11 +37,12 @@ class ExpensesViewController: UIViewController {
         let managedContext = appDelegate.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
         
-        do {
+        do{
             expenses = try managedContext.fetch(fetchRequest)
             
             expensesTableView.reloadData()
-        } catch {
+        }
+        catch{
             print("Fetch could not be performed")
         }
     }
@@ -82,7 +83,9 @@ class ExpensesViewController: UIViewController {
                 self.expenses.remove(at: indexPath.row)
                 
                 expensesTableView.deleteRows(at: [indexPath], with: .automatic)
-            } catch {
+            }
+            catch{
+            
                 print("delete failed")
                 
                 expensesTableView.deleteRows(at: [indexPath], with: .automatic)
